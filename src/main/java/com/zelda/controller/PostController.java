@@ -178,4 +178,11 @@ public class PostController {
         }
         return new ResponseEntity<>(posts, HttpStatus.OK);
     }
+
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/countPostByCategory/{id}")
+    public ResponseEntity<Long> countPostByCategory(@PathVariable Long id) {
+        Long postByCategory = postService.countPostByCategoryId(id);
+        return new ResponseEntity<>(postByCategory, HttpStatus.OK);
+    }
 }
